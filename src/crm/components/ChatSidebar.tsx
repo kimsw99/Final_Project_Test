@@ -48,12 +48,12 @@ export default function ChatSidebar({
     <Paper
       sx={{
         height: "100%",
-        width: 280,
+        width: "100%",
         display: "flex",
         flexDirection: "column",
-        bgcolor: "background.default",
-        borderRadius: 0,
-        boxShadow: "2px 0 8px rgba(0, 0, 0, 0.08)",
+        bgcolor: "#FFFFFF",
+        borderRadius: 2,
+        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.06)",
         pt: 2,
         px: 2,
         overflow: "auto",
@@ -105,12 +105,18 @@ export default function ChatSidebar({
 
         <Button
           fullWidth
-          variant="outlined"
+          variant="contained"
           startIcon={<AddRoundedIcon />}
           onClick={onNewChat}
           sx={{
             textTransform: "none",
-            borderRadius: 1,
+            borderRadius: 1.5,
+            bgcolor: "#0074E9",
+            color: "#FFFFFF",
+            fontWeight: 500,
+            "&:hover": {
+              bgcolor: "#0062C3",
+            },
           }}
         >
           New Chat
@@ -156,8 +162,12 @@ export default function ChatSidebar({
                     selected={activeConversationId === conversation.id}
                     onClick={() => onSelectConversation?.(conversation.id)}
                     sx={{
-                      borderRadius: 1,
+                      borderRadius: 1.5,
                       py: 1,
+                      bgcolor: activeConversationId === conversation.id ? "#CDE3FA" : "transparent",
+                      "&:hover": {
+                        bgcolor: "#F0F6FF",
+                      },
                     }}
                   >
                     <ListItemText
