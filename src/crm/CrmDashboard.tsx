@@ -12,12 +12,9 @@ import CrmAppNavbar from "./components/CrmAppNavbar";
 import CrmHeader from "./components/CrmHeader";
 import CrmSideMenu from "./components/CrmSideMenu";
 import CrmMainDashboard from "./components/CrmMainDashboard";
-import Customers from "./pages/Customers";
-import Deals from "./pages/Deals";
-import Contacts from "./pages/Contacts";
-import Tasks from "./pages/Tasks";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
+import Plan from "./pages/Plan";
 import AppTheme from "../shared-theme/AppTheme";
 import {
   chartsCustomizations,
@@ -63,11 +60,8 @@ export default function CrmDashboard() {
             <CrmHeader />
             <Routes>
               <Route index element={<CrmMainDashboard />} />
-              <Route path="customers" element={<Customers />} />
-              <Route path="deals" element={<Deals />} />
-              <Route path="contacts" element={<Contacts />} />
-              <Route path="tasks" element={<Tasks />} />
               <Route path="reports" element={<Reports />} />
+              <Route path="plan" element={<Plan />} />
               <Route path="settings" element={<Settings />} />
             </Routes>
             <Outlet />
