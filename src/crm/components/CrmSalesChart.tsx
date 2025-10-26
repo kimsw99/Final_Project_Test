@@ -91,6 +91,10 @@ export default function CrmSalesChart() {
         height: "100%",
         display: "flex",
         flexDirection: "column",
+        backgroundColor: "#FFFFFF",
+        borderColor: "#F0F2F5",
+        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
+        border: "none",
       }}
     >
       <CardContent
@@ -103,7 +107,7 @@ export default function CrmSalesChart() {
           spacing={2}
           sx={{ mb: 2 }}
         >
-          <Typography variant="h6" component="h3">
+          <Typography variant="h6" component="h3" sx={{ color: "#222222", fontWeight: 600 }}>
             Sales Performance
           </Typography>
           <ToggleButtonGroup
@@ -131,19 +135,19 @@ export default function CrmSalesChart() {
               {
                 data: salesData,
                 label: "Actual Sales",
-                color: theme.palette.primary.main,
+                color: "#0074E9",
                 valueFormatter: (value) => (value ? formatYAxis(value) : ""),
               },
               {
                 data: targetsData,
                 label: "Targets",
-                color: theme.palette.grey[400],
+                color: "#CDE3FA",
                 valueFormatter: (value) => (value ? formatYAxis(value) : ""),
               },
               {
                 data: projectedData,
                 label: "Projected",
-                color: theme.palette.secondary.main,
+                color: "#E6F0FF",
                 valueFormatter: (value) => (value ? formatYAxis(value) : ""),
               },
             ]}
