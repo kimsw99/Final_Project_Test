@@ -47,9 +47,9 @@ export default function ChatInputArea({
       sx={{
         width: "100%",
         p: 2,
-        borderRadius: 0,
-        boxShadow: "0 -2px 8px rgba(0, 0, 0, 0.08)",
-        bgcolor: "background.paper",
+        borderRadius: 2,
+        boxShadow: "0 -2px 8px rgba(0, 0, 0, 0.06)",
+        bgcolor: "#FFFFFF",
       }}
       elevation={0}
     >
@@ -67,9 +67,13 @@ export default function ChatInputArea({
               variant="outlined"
               size="small"
               sx={{
-                borderRadius: 1,
+                borderRadius: 1.5,
+                borderColor: "#CDE3FA",
+                color: "#0074E9",
+                fontSize: "0.85rem",
                 "&:hover": {
-                  bgcolor: "action.hover",
+                  bgcolor: "#F0F6FF",
+                  borderColor: "#0074E9",
                 },
               }}
             />
@@ -91,6 +95,15 @@ export default function ChatInputArea({
           sx={{
             "& .MuiOutlinedInput-root": {
               borderRadius: 1.5,
+              bgcolor: "#F9FAFB",
+              borderColor: "#E5E7EB",
+              "&:hover": {
+                borderColor: "#CDE3FA",
+              },
+              "&.Mui-focused": {
+                borderColor: "#0074E9",
+                boxShadow: "0 0 0 3px rgba(0, 116, 233, 0.08)",
+              },
             },
           }}
         />
@@ -105,7 +118,10 @@ export default function ChatInputArea({
           onClick={handleSendMessage}
           disabled={!inputValue.trim()}
           sx={{
-            color: inputValue.trim() ? "primary.main" : "action.disabled",
+            color: inputValue.trim() ? "#0074E9" : "#D1D5DB",
+            "&:hover": {
+              bgcolor: "rgba(0, 116, 233, 0.08)",
+            },
           }}
         >
           <SendRoundedIcon />
