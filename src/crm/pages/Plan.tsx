@@ -133,7 +133,7 @@ export default function Plan() {
         display: "flex",
         width: "100%",
         height: "100%",
-        bgcolor: "background.default",
+        bgcolor: "#E6F0FF",
         mt: { xs: 8, md: 0 },
       }}
     >
@@ -143,6 +143,7 @@ export default function Plan() {
           flexShrink: 0,
           display: { xs: "none", md: "block" },
           overflow: "hidden",
+          p: 2,
         }}
       >
         <ChatSidebar
@@ -164,7 +165,8 @@ export default function Plan() {
           display: "flex",
           flexDirection: "column",
           position: "relative",
-          bgcolor: "background.default",
+          bgcolor: "#E6F0FF",
+          p: 2,
         }}
       >
         <Paper
@@ -172,10 +174,12 @@ export default function Plan() {
             flexGrow: 1,
             overflow: "auto",
             p: { xs: 2, md: 3 },
-            borderRadius: 0,
+            borderRadius: 2,
             mb: { xs: 14, sm: 11, md: 10 },
             display: "flex",
             flexDirection: "column",
+            bgcolor: "#FFFFFF",
+            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.06)",
           }}
           elevation={0}
         >
