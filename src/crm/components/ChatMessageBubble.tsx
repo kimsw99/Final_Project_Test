@@ -35,8 +35,9 @@ export default function ChatMessageBubble({
           sx={{
             width: 32,
             height: 32,
-            bgcolor: "primary.main",
+            bgcolor: "#0074E9",
             fontSize: "0.75rem",
+            color: "#FFFFFF",
           }}
         >
           AI
@@ -47,12 +48,12 @@ export default function ChatMessageBubble({
           maxWidth: "70%",
           px: 2,
           py: 1.5,
-          bgcolor: isUser ? "primary.main" : "background.paper",
-          color: isUser ? "primary.contrastText" : "text.primary",
+          bgcolor: isUser ? "#0074E9" : "#F5F7FA",
+          color: isUser ? "#FFFFFF" : "#1F2937",
           borderRadius: 2,
           boxShadow: isUser
-            ? "0 2px 8px rgba(66, 133, 244, 0.2)"
-            : "0 1px 3px rgba(0, 0, 0, 0.08)",
+            ? "0 2px 8px rgba(0, 116, 233, 0.15)"
+            : "0 1px 3px rgba(0, 0, 0, 0.05)",
         }}
         elevation={0}
       >
@@ -78,7 +79,8 @@ export default function ChatMessageBubble({
           sx={{
             width: 32,
             height: 32,
-            bgcolor: "info.main",
+            bgcolor: "#0074E9",
+            color: "#FFFFFF",
           }}
         >
           U
