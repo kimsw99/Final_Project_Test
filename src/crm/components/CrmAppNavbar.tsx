@@ -40,11 +40,10 @@ export default function CrmAppNavbar() {
       position="fixed"
       sx={{
         display: { xs: "auto", md: "none" },
-        boxShadow: 0,
-        bgcolor: "background.paper",
+        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
+        bgcolor: "#FFFFFF",
         backgroundImage: "none",
-        borderBottom: "1px solid",
-        borderColor: "divider",
+        borderBottom: "1px solid #F0F2F5",
         top: "var(--template-frame-height, 0px)",
       }}
     >
@@ -67,7 +66,7 @@ export default function CrmAppNavbar() {
             <Typography
               variant="h5"
               component="h1"
-              sx={{ color: "text.primary" }}
+              sx={{ color: "#222222", fontWeight: 600 }}
             >
               Acme CRM
             </Typography>
@@ -89,16 +88,16 @@ export function CrmLogo() {
       sx={{
         width: "1.75rem",
         height: "1.75rem",
-        bgcolor: "primary.main",
+        bgcolor: "#0074E9",
         borderRadius: "8px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         alignSelf: "center",
-        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+        boxShadow: "0px 2px 4px rgba(0, 116, 233, 0.15)",
       }}
     >
-      <BusinessRoundedIcon sx={{ color: "white", fontSize: "1.25rem" }} />
+      <BusinessRoundedIcon sx={{ color: "#FFFFFF", fontSize: "1.25rem" }} />
     </Box>
   );
 }
