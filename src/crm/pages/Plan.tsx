@@ -132,7 +132,7 @@ export default function Plan() {
       sx={{
         display: "flex",
         width: "100%",
-        height: "calc(100vh - var(--template-frame-height, 0px))",
+        height: "100%",
         bgcolor: "background.default",
       }}
     >
