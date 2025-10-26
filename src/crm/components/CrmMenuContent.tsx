@@ -37,10 +37,22 @@ export default function CrmMenuContent() {
     <Stack sx={{ flexGrow: 1, p: 1, justifyContent: "space-between" }}>
       <List dense>
         {mainListItems.map((item, index) => (
-          <ListItem key={index} disablePadding sx={{ display: "block" }}>
+          <ListItem key={index} disablePadding sx={{ display: "block", mb: 0.5 }}>
             <ListItemButton
               selected={location.pathname === item.path}
               onClick={() => handleNavigation(item.path)}
+              sx={{
+                borderRadius: 1,
+                backgroundColor: location.pathname === item.path ? "#E6F0FF" : "transparent",
+                color: location.pathname === item.path ? "#0074E9" : "#222222",
+                "&:hover": {
+                  backgroundColor: "#F5F7FA",
+                },
+                "& .MuiListItemIcon-root": {
+                  color: "inherit",
+                  minWidth: 40,
+                },
+              }}
             >
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
@@ -49,13 +61,25 @@ export default function CrmMenuContent() {
         ))}
       </List>
       <Box>
-        <Divider sx={{ my: 1 }} />
+        <Divider sx={{ my: 1, borderColor: "#F0F2F5" }} />
         <List dense>
           {secondaryListItems.map((item, index) => (
-            <ListItem key={index} disablePadding sx={{ display: "block" }}>
+            <ListItem key={index} disablePadding sx={{ display: "block", mb: 0.5 }}>
               <ListItemButton
                 selected={location.pathname === item.path}
                 onClick={() => handleNavigation(item.path)}
+                sx={{
+                  borderRadius: 1,
+                  backgroundColor: location.pathname === item.path ? "#E6F0FF" : "transparent",
+                  color: location.pathname === item.path ? "#0074E9" : "#222222",
+                  "&:hover": {
+                    backgroundColor: "#F5F7FA",
+                  },
+                  "& .MuiListItemIcon-root": {
+                    color: "inherit",
+                    minWidth: 40,
+                  },
+                }}
               >
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.text} />
