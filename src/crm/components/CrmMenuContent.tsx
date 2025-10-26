@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import Box from "@mui/material/Box"; // Added the missing import
+import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -8,22 +8,16 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
-import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
-import PeopleRoundedIcon from "@mui/icons-material/PeopleRounded";
-import BusinessCenterRoundedIcon from "@mui/icons-material/BusinessCenterRounded";
-import ContactsRoundedIcon from "@mui/icons-material/ContactsRounded";
-import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import AssessmentRoundedIcon from "@mui/icons-material/AssessmentRounded";
+import SmartToyRoundedIcon from "@mui/icons-material/SmartToyRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
 
 const mainListItems = [
-  { text: "Dashboard", icon: <DashboardRoundedIcon />, path: "/" },
-  { text: "Customers", icon: <PeopleRoundedIcon />, path: "/customers" },
-  { text: "Deals", icon: <BusinessCenterRoundedIcon />, path: "/deals" },
-  { text: "Contacts", icon: <ContactsRoundedIcon />, path: "/contacts" },
-  { text: "Tasks", icon: <AssignmentRoundedIcon />, path: "/tasks" },
+  { text: "Home", icon: <HomeRoundedIcon />, path: "/" },
   { text: "Reports", icon: <AssessmentRoundedIcon />, path: "/reports" },
+  { text: "Plan", icon: <SmartToyRoundedIcon />, path: "/plan" },
 ];
 
 const secondaryListItems = [
