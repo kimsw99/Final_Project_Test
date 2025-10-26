@@ -97,14 +97,7 @@ export default function CrmDashboard() {
                 </Stack>
               }
             />
-            <Route
-              path="plan"
-              element={
-                <Box sx={{ height: "100%", overflow: "hidden" }}>
-                  <Plan />
-                </Box>
-              }
-            />
+            <Route path="plan" element={<Plan />} />
             <Route
               path="settings"
               element={
