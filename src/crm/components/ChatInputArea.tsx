@@ -45,15 +45,11 @@ export default function ChatInputArea({
   return (
     <Paper
       sx={{
-        position: "fixed",
-        bottom: 0,
-        right: 0,
-        left: { xs: 0, md: "280px" },
+        width: "100%",
         p: 2,
         borderRadius: 0,
         boxShadow: "0 -2px 8px rgba(0, 0, 0, 0.08)",
         bgcolor: "background.paper",
-        zIndex: 10,
       }}
       elevation={0}
     >
