@@ -103,27 +103,31 @@ export default function ChatSidebar({
 
         <Divider sx={{ my: 1 }} />
 
-        <Button
-          fullWidth
-          variant="contained"
-          startIcon={<AddRoundedIcon />}
+        <Box
           onClick={onNewChat}
-          disableRipple
           sx={{
-            textTransform: "none",
+            width: "100%",
+            py: 1.2,
+            px: 2,
             borderRadius: 1.5,
-            backgroundColor: "#0074E9 !important",
-            color: "#FFFFFF !important",
+            backgroundColor: "#0074E9",
+            color: "#FFFFFF",
             fontWeight: 500,
             fontSize: "0.95rem",
-            py: 1.2,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 1,
+            cursor: "pointer",
+            transition: "background-color 0.2s ease",
             "&:hover": {
-              backgroundColor: "#0062C3 !important",
+              backgroundColor: "#0062C3",
             },
           }}
         >
-          + New Chat
-        </Button>
+          <AddRoundedIcon sx={{ fontSize: "1.25rem" }} />
+          New Chat
+        </Box>
 
         <Box>
           <Typography
