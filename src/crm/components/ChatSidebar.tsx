@@ -47,19 +47,16 @@ export default function ChatSidebar({
   return (
     <Paper
       sx={{
-        position: "fixed",
-        left: 0,
-        top: 0,
-        height: "100vh",
+        height: "100%",
         width: 280,
-        display: { xs: "none", md: "flex" },
+        display: "flex",
         flexDirection: "column",
         bgcolor: "background.default",
         borderRadius: 0,
         boxShadow: "2px 0 8px rgba(0, 0, 0, 0.08)",
-        zIndex: 5,
         pt: 2,
         px: 2,
+        overflow: "auto",
       }}
       elevation={0}
     >
