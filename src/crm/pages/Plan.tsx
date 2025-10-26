@@ -186,7 +186,7 @@ export default function Plan() {
           <Stack spacing={2} sx={{ flex: 1 }}>
             {messages.length === 0 && (
               <Stack
-                spacing={3}
+                spacing={2}
                 sx={{
                   justifyContent: "center",
                   alignItems: "center",
@@ -195,10 +195,10 @@ export default function Plan() {
                   py: 8,
                 }}
               >
-                <Typography variant="h4" sx={{ fontWeight: 600 }}>
+                <Typography variant="h5" sx={{ fontWeight: 600, color: "#1F2937" }}>
                   Start a Conversation
                 </Typography>
-                <Typography color="text.secondary">
+                <Typography sx={{ color: "#6B7280", fontSize: "0.95rem" }}>
                   Ask me anything about your sales, customers, or analytics
                 </Typography>
               </Stack>

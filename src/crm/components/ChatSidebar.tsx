@@ -114,12 +114,14 @@ export default function ChatSidebar({
             bgcolor: "#0074E9",
             color: "#FFFFFF",
             fontWeight: 500,
+            fontSize: "0.95rem",
+            py: 1.2,
             "&:hover": {
               bgcolor: "#0062C3",
             },
           }}
         >
-          New Chat
+          + New Chat
         </Button>
 
         <Box>
