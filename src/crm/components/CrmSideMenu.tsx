@@ -31,7 +31,8 @@ export default function CrmSideMenu() {
       sx={{
         display: { xs: "none", md: "block" },
         [`& .${drawerClasses.paper}`]: {
-          backgroundColor: "background.paper",
+          backgroundColor: "#FFFFFF",
+          borderRight: "1px solid #F0F2F5",
         },
       }}
     >
@@ -61,26 +62,25 @@ export default function CrmSideMenu() {
           p: 2,
           gap: 1,
           alignItems: "center",
-          borderTop: "1px solid",
-          borderColor: "divider",
+          borderTop: "1px solid #F0F2F5",
         }}
       >
         <Avatar
           sizes="small"
           alt="Alex Thompson"
           src="/static/images/avatar/7.jpg"
-          sx={{ width: 36, height: 36, bgcolor: "primary.main" }}
+          sx={{ width: 36, height: 36, bgcolor: "#0074E9", color: "#FFFFFF" }}
         >
           AT
         </Avatar>
         <Box sx={{ mr: "auto" }}>
           <Typography
             variant="body2"
-            sx={{ fontWeight: 500, lineHeight: "16px" }}
+            sx={{ fontWeight: 500, lineHeight: "16px", color: "#222222" }}
           >
             Alex Thompson
           </Typography>
-          <Typography variant="caption" sx={{ color: "text.secondary" }}>
+          <Typography variant="caption" sx={{ color: "#999999" }}>
             alex@acmecrm.com
           </Typography>
         </Box>
