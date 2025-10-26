@@ -76,7 +76,6 @@ export default function Plan() {
   const [activeConversationId, setActiveConversationId] = React.useState(
     "conv-1"
   );
-  const [sidebarOpen, setSidebarOpen] = React.useState(true);
   const messagesEndRef = React.useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -139,11 +138,10 @@ export default function Plan() {
     >
       <Box
         sx={{
-          width: { xs: "100%", md: sidebarOpen ? 280 : 0 },
+          width: 280,
           flexShrink: 0,
           display: { xs: "none", md: "block" },
           overflow: "hidden",
-          transition: "width 0.2s ease",
         }}
       >
         <ChatSidebar
@@ -212,21 +210,11 @@ export default function Plan() {
           </Stack>
         </Paper>
 
-        <Box
-          sx={{
-            position: "fixed",
-            bottom: 0,
-            right: 0,
-            left: { xs: 0, md: sidebarOpen ? 280 : 0 },
-            transition: "left 0.2s ease",
-          }}
-        >
-          <ChatInputArea
-            onSendMessage={handleSendMessage}
-            suggestedPrompts={suggestedPrompts}
-            onSuggestedPromptClick={(prompt) => handleSendMessage(prompt)}
-          />
-        </Box>
+        <ChatInputArea
+          onSendMessage={handleSendMessage}
+          suggestedPrompts={suggestedPrompts}
+          onSuggestedPromptClick={(prompt) => handleSendMessage(prompt)}
+        />
       </Box>
     </Box>
   );
