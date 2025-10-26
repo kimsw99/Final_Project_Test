@@ -67,12 +67,21 @@ export default function CrmStatCard({
   const trendIcon = trendIcons[trend];
 
   return (
-    <Card variant="outlined" sx={{ height: "100%" }}>
+    <Card
+      variant="outlined"
+      sx={{
+        height: "100%",
+        backgroundColor: "#FFFFFF",
+        borderColor: "#F0F2F5",
+        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
+        border: "none",
+      }}
+    >
       <CardContent>
         <Typography
           component="h3"
           variant="subtitle2"
-          color="text.secondary"
+          sx={{ color: "#666666", fontWeight: 500 }}
           gutterBottom
         >
           {title}
@@ -102,7 +111,7 @@ export default function CrmStatCard({
                 }}
               />
             </Stack>
-            <Typography variant="caption" sx={{ color: "text.secondary" }}>
+            <Typography variant="caption" sx={{ color: "#999999" }}>
               {interval}
             </Typography>
           </Stack>
