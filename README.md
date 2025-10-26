@@ -1,16 +1,3 @@
-# Material UI - Vite example with Tailwind CSS in TypeScript
-
-## How to use
-
-Download the example [or clone the repo](https://github.com/steve8708/mui-vite):
-
-<!-- #target-branch-reference -->
-
-```bash
-git clone https://github.com/steve8708/mui-vite.git
-cd mui-vite
-```
-
 Install it and run:
 
 ```bash
