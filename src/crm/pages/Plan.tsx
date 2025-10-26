@@ -76,6 +76,7 @@ export default function Plan() {
   const [activeConversationId, setActiveConversationId] = React.useState(
     "conv-1"
   );
+  const [sidebarOpen, setSidebarOpen] = React.useState(true);
   const messagesEndRef = React.useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -128,26 +129,42 @@ export default function Plan() {
   };
 
   return (
-    <Box sx={{ display: "flex", height: "100%", width: "100%" }}>
-      <ChatSidebar
-        userProfile={{
-          name: "Sarah Johnson",
-          email: "sarah@acme.com",
+    <Box
+      sx={{
+        display: "flex",
+        width: "100%",
+        height: "calc(100vh - var(--template-frame-height, 0px))",
+        bgcolor: "background.default",
+      }}
+    >
+      <Box
+        sx={{
+          width: { xs: "100%", md: sidebarOpen ? 280 : 0 },
+          flexShrink: 0,
+          display: { xs: "none", md: "block" },
+          overflow: "hidden",
+          transition: "width 0.2s ease",
         }}
-        conversationHistory={conversationHistory}
-        onNewChat={handleNewChat}
-        onSelectConversation={handleSelectConversation}
-        onDeleteConversation={handleDeleteConversation}
-        activeConversationId={activeConversationId}
-      />
+      >
+        <ChatSidebar
+          userProfile={{
+            name: "Sarah Johnson",
+            email: "sarah@acme.com",
+          }}
+          conversationHistory={conversationHistory}
+          onNewChat={handleNewChat}
+          onSelectConversation={handleSelectConversation}
+          onDeleteConversation={handleDeleteConversation}
+          activeConversationId={activeConversationId}
+        />
+      </Box>
 
       <Box
         sx={{
           flexGrow: 1,
           display: "flex",
           flexDirection: "column",
-          ml: { xs: 0, md: "280px" },
-          height: "100%",
+          position: "relative",
           bgcolor: "background.default",
         }}
       >
@@ -155,7 +172,7 @@ export default function Plan() {
           sx={{
             flexGrow: 1,
             overflow: "auto",
-            p: 3,
+            p: { xs: 2, md: 3 },
             borderRadius: 0,
             mb: { xs: 14, sm: 11, md: 10 },
             display: "flex",
@@ -195,11 +212,21 @@ export default function Plan() {
           </Stack>
         </Paper>
 
-        <ChatInputArea
-          onSendMessage={handleSendMessage}
-          suggestedPrompts={suggestedPrompts}
-          onSuggestedPromptClick={(prompt) => handleSendMessage(prompt)}
-        />
+        <Box
+          sx={{
+            position: "fixed",
+            bottom: 0,
+            right: 0,
+            left: { xs: 0, md: sidebarOpen ? 280 : 0 },
+            transition: "left 0.2s ease",
+          }}
+        >
+          <ChatInputArea
+            onSendMessage={handleSendMessage}
+            suggestedPrompts={suggestedPrompts}
+            onSuggestedPromptClick={(prompt) => handleSendMessage(prompt)}
+          />
+        </Box>
       </Box>
     </Box>
   );
