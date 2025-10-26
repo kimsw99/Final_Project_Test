@@ -161,23 +161,19 @@ export default function ChatSidebar({
                     }}
                   >
                     <ListItemText
-                      primary={
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            overflow: "hidden",
-                            textOverflow: "ellipsis",
-                            whiteSpace: "nowrap",
-                          }}
-                        >
-                          {conversation.title}
-                        </Typography>
-                      }
-                      secondary={
-                        <Typography variant="caption" color="text.secondary">
-                          {conversation.timestamp}
-                        </Typography>
-                      }
+                      primary={conversation.title}
+                      secondary={conversation.timestamp}
+                      primaryTypographyProps={{
+                        variant: "body2",
+                        sx: {
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
+                        },
+                      }}
+                      secondaryTypographyProps={{
+                        variant: "caption",
+                      }}
                     />
                   </ListItemButton>
                 </ListItem>
