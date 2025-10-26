@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Outlet, Routes, Route } from "react-router-dom";
+import { Outlet, Routes, Route, useLocation } from "react-router-dom";
 import type {} from "@mui/x-date-pickers/themeAugmentation";
 import type {} from "@mui/x-charts/themeAugmentation";
 import type {} from "@mui/x-data-grid-pro/themeAugmentation";
@@ -31,6 +31,9 @@ const xThemeComponents = {
 };
 
 export default function CrmDashboard() {
+  const location = useLocation();
+  const isPlanPage = location.pathname === "/plan";
+
   return (
     <AppTheme themeComponents={xThemeComponents}>
       <CssBaseline enableColorScheme />
@@ -45,27 +48,81 @@ export default function CrmDashboard() {
             backgroundColor: theme.vars
               ? `rgba(${theme.vars.palette.background.defaultChannel} / 1)`
               : alpha(theme.palette.background.default, 1),
-            overflow: "auto",
+            overflow: isPlanPage ? "hidden" : "auto",
           })}
         >
-          <Stack
-            spacing={2}
-            sx={{
-              alignItems: "center",
-              mx: 3,
-              pb: 5,
-              mt: { xs: 8, md: 0 },
-            }}
-          >
-            <CrmHeader />
-            <Routes>
-              <Route index element={<CrmMainDashboard />} />
-              <Route path="reports" element={<Reports />} />
-              <Route path="plan" element={<Plan />} />
-              <Route path="settings" element={<Settings />} />
-            </Routes>
-            <Outlet />
-          </Stack>
+          {!isPlanPage && (
+            <Stack
+              spacing={2}
+              sx={{
+                alignItems: "center",
+                mx: 3,
+                pb: 5,
+                mt: { xs: 8, md: 0 },
+              }}
+            >
+              <CrmHeader />
+            </Stack>
+          )}
+          <Routes>
+            <Route
+              index
+              element={
+                <Stack
+                  spacing={2}
+                  sx={{
+                    alignItems: "center",
+                    mx: 3,
+                    pb: 5,
+                    mt: { xs: 8, md: 0 },
+                  }}
+                >
+                  <CrmMainDashboard />
+                </Stack>
+              }
+            />
+            <Route
+              path="reports"
+              element={
+                <Stack
+                  spacing={2}
+                  sx={{
+                    alignItems: "center",
+                    mx: 3,
+                    pb: 5,
+                    mt: { xs: 8, md: 0 },
+                  }}
+                >
+                  <Reports />
+                </Stack>
+              }
+            />
+            <Route
+              path="plan"
+              element={
+                <Box sx={{ height: "100%", overflow: "hidden" }}>
+                  <Plan />
+                </Box>
+              }
+            />
+            <Route
+              path="settings"
+              element={
+                <Stack
+                  spacing={2}
+                  sx={{
+                    alignItems: "center",
+                    mx: 3,
+                    pb: 5,
+                    mt: { xs: 8, md: 0 },
+                  }}
+                >
+                  <Settings />
+                </Stack>
+              }
+            />
+          </Routes>
+          <Outlet />
         </Box>
       </Box>
     </AppTheme>
