@@ -108,16 +108,17 @@ export default function ChatSidebar({
           variant="contained"
           startIcon={<AddRoundedIcon />}
           onClick={onNewChat}
+          disableRipple
           sx={{
             textTransform: "none",
             borderRadius: 1.5,
-            bgcolor: "#0074E9",
-            color: "#FFFFFF",
+            backgroundColor: "#0074E9 !important",
+            color: "#FFFFFF !important",
             fontWeight: 500,
             fontSize: "0.95rem",
             py: 1.2,
             "&:hover": {
-              bgcolor: "#0062C3",
+              backgroundColor: "#0062C3 !important",
             },
           }}
         >
