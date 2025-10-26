@@ -70,18 +70,39 @@ export default function CrmMainDashboard() {
         alignItems="center"
         sx={{ mb: 3, display: { xs: "none", sm: "flex" } }}
       >
-        <Typography variant="h5" component="h2">
+        <Typography variant="h5" component="h2" sx={{ color: "#222222", fontWeight: 600 }}>
           Dashboard Overview
         </Typography>
         <Box>
           <Button
             variant="contained"
             startIcon={<AddRoundedIcon />}
-            sx={{ mr: 1 }}
+            sx={{
+              mr: 1,
+              backgroundColor: "#0074E9",
+              textTransform: "none",
+              fontWeight: 500,
+              "&:hover": {
+                backgroundColor: "#0062C3",
+              },
+            }}
           >
             New Lead
           </Button>
-          <Button variant="outlined" startIcon={<AddRoundedIcon />}>
+          <Button
+            variant="outlined"
+            startIcon={<AddRoundedIcon />}
+            sx={{
+              borderColor: "#CDE3FA",
+              color: "#0074E9",
+              textTransform: "none",
+              fontWeight: 500,
+              "&:hover": {
+                borderColor: "#0074E9",
+                backgroundColor: "#F5F7FA",
+              },
+            }}
+          >
             New Deal
           </Button>
         </Box>
