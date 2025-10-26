@@ -25,7 +25,7 @@ export default function CrmHeader() {
     >
       <Stack direction="column" spacing={1}>
         <CrmNavbarBreadcrumbs />
-        <Typography variant="h4" component="h1" sx={{ fontWeight: 600 }}>
+        <Typography variant="h4" component="h1" sx={{ fontWeight: 600, color: "#222222" }}>
           CRM Dashboard
         </Typography>
       </Stack>
@@ -35,6 +35,15 @@ export default function CrmHeader() {
           variant="outlined"
           size="small"
           startIcon={<CalendarTodayRoundedIcon />}
+          sx={{
+            borderColor: "#CDE3FA",
+            color: "#0074E9",
+            textTransform: "none",
+            "&:hover": {
+              borderColor: "#0074E9",
+              backgroundColor: "#F5F7FA",
+            },
+          }}
         >
           This Month
         </Button>
