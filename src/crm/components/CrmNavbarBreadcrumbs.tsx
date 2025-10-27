@@ -18,14 +18,14 @@ export default function CrmNavbarBreadcrumbs() {
     <Breadcrumbs
       separator={<NavigateNextRoundedIcon fontSize="small" />}
       aria-label="breadcrumb"
-      sx={{ mb: 1 }}
+      sx={{ mb: 1, color: "#666666" }}
     >
       <Link
         component={RouterLink}
         underline="hover"
         color="inherit"
         to="/"
-        sx={{ display: "flex", alignItems: "center" }}
+        sx={{ display: "flex", alignItems: "center", color: "#0074E9" }}
       >
         <HomeRoundedIcon sx={{ mr: 0.5 }} fontSize="small" />
         Home
@@ -35,7 +35,7 @@ export default function CrmNavbarBreadcrumbs() {
         const to = `/${pathnames.slice(0, index + 1).join("/")}`;
 
         return last ? (
-          <Typography key={to} color="text.primary">
+          <Typography key={to} sx={{ color: "#666666", fontWeight: 500 }}>
             {capitalizeFirstLetter(value)}
           </Typography>
         ) : (
@@ -45,6 +45,7 @@ export default function CrmNavbarBreadcrumbs() {
             color="inherit"
             to={to}
             key={to}
+            sx={{ color: "#0074E9" }}
           >
             {capitalizeFirstLetter(value)}
           </Link>
