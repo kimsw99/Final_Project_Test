@@ -67,20 +67,18 @@ const recentDeals = [
 ];
 
 // Function to get color based on deal stage
-const getStageColor = (
-  stage: string,
-): "default" | "primary" | "success" | "warning" | "info" => {
+const getStageColor = (stage: string): { bg: string; color: string } => {
   switch (stage) {
     case "Discovery":
-      return "info";
+      return { bg: "#E6F0FF", color: "#0074E9" };
     case "Proposal":
-      return "primary";
+      return { bg: "#CDE3FA", color: "#0074E9" };
     case "Negotiation":
-      return "warning";
+      return { bg: "#FEF3E2", color: "#D97706" };
     case "Closed Won":
-      return "success";
+      return { bg: "#ECFDF5", color: "#059669" };
     default:
-      return "default";
+      return { bg: "#F3F4F6", color: "#6B7280" };
   }
 };
 
@@ -111,6 +109,10 @@ export default function CrmRecentDealsTable() {
         height: "100%",
         display: "flex",
         flexDirection: "column",
+        backgroundColor: "#FFFFFF",
+        borderColor: "#F0F2F5",
+        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
+        border: "none",
       }}
     >
       <CardContent sx={{ pb: 0 }}>
@@ -121,10 +123,20 @@ export default function CrmRecentDealsTable() {
           spacing={2}
           sx={{ mb: 2 }}
         >
-          <Typography variant="h6" component="h3">
+          <Typography variant="h6" component="h3" sx={{ color: "#222222", fontWeight: 600 }}>
             Recent Deals
           </Typography>
-          <Button endIcon={<ArrowForwardRoundedIcon />} size="small">
+          <Button
+            endIcon={<ArrowForwardRoundedIcon />}
+            size="small"
+            sx={{
+              color: "#0074E9",
+              textTransform: "none",
+              "&:hover": {
+                backgroundColor: "rgba(0, 116, 233, 0.08)",
+              },
+            }}
+          >
             View All
           </Button>
         </Stack>
@@ -132,52 +144,59 @@ export default function CrmRecentDealsTable() {
       <TableContainer sx={{ flexGrow: 1 }}>
         <Table size="small" aria-label="recent deals table">
           <TableHead>
-            <TableRow>
-              <TableCell>Deal Name</TableCell>
-              <TableCell>Customer</TableCell>
-              <TableCell align="right">Value</TableCell>
-              <TableCell>Stage</TableCell>
-              <TableCell align="right">Probability</TableCell>
-              <TableCell>Closing Date</TableCell>
-              <TableCell align="right">Actions</TableCell>
+            <TableRow sx={{ backgroundColor: "#F9FAFB", borderColor: "#F0F2F5" }}>
+              <TableCell sx={{ color: "#666666", fontWeight: 600 }}>Deal Name</TableCell>
+              <TableCell sx={{ color: "#666666", fontWeight: 600 }}>Customer</TableCell>
+              <TableCell align="right" sx={{ color: "#666666", fontWeight: 600 }}>Value</TableCell>
+              <TableCell sx={{ color: "#666666", fontWeight: 600 }}>Stage</TableCell>
+              <TableCell align="right" sx={{ color: "#666666", fontWeight: 600 }}>Probability</TableCell>
+              <TableCell sx={{ color: "#666666", fontWeight: 600 }}>Closing Date</TableCell>
+              <TableCell align="right" sx={{ color: "#666666", fontWeight: 600 }}>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {recentDeals.map((deal) => (
-              <TableRow key={deal.id} hover>
-                <TableCell sx={{ fontWeight: 500 }}>{deal.name}</TableCell>
-                <TableCell>
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                    <Avatar
-                      sx={{ width: 28, height: 28, fontSize: "0.875rem" }}
-                    >
-                      {deal.customer.avatar}
-                    </Avatar>
-                    <Typography variant="body2">
-                      {deal.customer.name}
-                    </Typography>
-                  </Box>
-                </TableCell>
-                <TableCell align="right">
-                  {formatCurrency(deal.value)}
-                </TableCell>
-                <TableCell>
-                  <Chip
-                    label={deal.stage}
-                    size="small"
-                    color={getStageColor(deal.stage)}
-                    variant="outlined"
-                  />
-                </TableCell>
-                <TableCell align="right">{deal.probability}%</TableCell>
-                <TableCell>{formatDate(deal.closingDate)}</TableCell>
-                <TableCell align="right">
-                  <IconButton size="small" aria-label="more options">
-                    <MoreVertRoundedIcon fontSize="small" />
-                  </IconButton>
-                </TableCell>
-              </TableRow>
-            ))}
+            {recentDeals.map((deal) => {
+              const stageColor = getStageColor(deal.stage);
+              return (
+                <TableRow key={deal.id} hover sx={{ borderColor: "#F0F2F5" }}>
+                  <TableCell sx={{ fontWeight: 500, color: "#222222" }}>{deal.name}</TableCell>
+                  <TableCell>
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                      <Avatar
+                        sx={{ width: 28, height: 28, fontSize: "0.875rem", bgcolor: "#0074E9", color: "#FFFFFF" }}
+                      >
+                        {deal.customer.avatar}
+                      </Avatar>
+                      <Typography variant="body2" sx={{ color: "#222222" }}>
+                        {deal.customer.name}
+                      </Typography>
+                    </Box>
+                  </TableCell>
+                  <TableCell align="right" sx={{ color: "#222222", fontWeight: 500 }}>
+                    {formatCurrency(deal.value)}
+                  </TableCell>
+                  <TableCell>
+                    <Chip
+                      label={deal.stage}
+                      size="small"
+                      sx={{
+                        backgroundColor: stageColor.bg,
+                        color: stageColor.color,
+                        border: "none",
+                        fontWeight: 500,
+                      }}
+                    />
+                  </TableCell>
+                  <TableCell align="right" sx={{ color: "#222222" }}>{deal.probability}%</TableCell>
+                  <TableCell sx={{ color: "#666666" }}>{formatDate(deal.closingDate)}</TableCell>
+                  <TableCell align="right">
+                    <IconButton size="small" aria-label="more options" sx={{ color: "#999999" }}>
+                      <MoreVertRoundedIcon fontSize="small" />
+                    </IconButton>
+                  </TableCell>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       </TableContainer>
