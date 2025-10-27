@@ -1,7 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
@@ -9,28 +7,6 @@ import Button from "@mui/material/Button";
 import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 
 export default function Reports() {
-  const reportCategories = [
-    {
-      title: "Sales Reports",
-      description: "Track your sales performance, pipeline, and revenue metrics.",
-      icon: "📊",
-    },
-    {
-      title: "Customer Analytics",
-      description: "Analyze customer behavior, retention, and satisfaction metrics.",
-      icon: "👥",
-    },
-    {
-      title: "Team Performance",
-      description: "Monitor team productivity, call logs, and deal progression.",
-      icon: "👔",
-    },
-    {
-      title: "Financial Overview",
-      description: "Review financial summaries, forecasts, and spending analysis.",
-      icon: "💰",
-    },
-  ];
 
   return (
     <Box sx={{ width: "100%", maxWidth: { sm: "100%", md: "1700px" } }}>
