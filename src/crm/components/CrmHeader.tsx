@@ -31,26 +31,9 @@ export default function CrmHeader() {
       </Stack>
       <Stack direction="row" sx={{ gap: 1 }}>
         <CrmSearch />
-        <Button
-          variant="outlined"
-          size="small"
-          startIcon={<CalendarTodayRoundedIcon />}
-          sx={{
-            borderColor: "#CDE3FA",
-            color: "#0074E9",
-            textTransform: "none",
-            "&:hover": {
-              borderColor: "#0074E9",
-              backgroundColor: "#F5F7FA",
-            },
-          }}
-        >
-          This Month
-        </Button>
         <MenuButton showBadge aria-label="Open notifications">
           <NotificationsRoundedIcon />
         </MenuButton>
-        <ColorModeIconDropdown />
       </Stack>
     </Stack>
   );
