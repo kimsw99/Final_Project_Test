@@ -43,13 +43,11 @@ export default function CrmDashboard() {
         {/* Main content */}
         <Box
           component="main"
-          sx={(theme) => ({
+          sx={{
             flexGrow: 1,
-            backgroundColor: theme.vars
-              ? `rgba(${theme.vars.palette.background.defaultChannel} / 1)`
-              : alpha(theme.palette.background.default, 1),
+            backgroundColor: "#F8F9FB",
             overflow: isPlanPage ? "hidden" : "auto",
-          })}
+          }}
         >
           {!isPlanPage && (
             <Stack
