@@ -3,52 +3,53 @@ import InputBase from "@mui/material/InputBase";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { alpha, styled } from "@mui/material/styles";
 
-const SearchWrapper = styled("div")(({ theme }) => ({
+const SearchWrapper = styled("div")({
   position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.black, 0.04),
+  borderRadius: "8px",
+  backgroundColor: "#F5F7FA",
+  border: "1px solid #CDE3FA",
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.black, 0.06),
+    backgroundColor: "#F9FAFB",
+    borderColor: "#0074E9",
   },
   marginLeft: 0,
   width: "100%",
-  [theme.breakpoints.up("sm")]: {
+  "@media (min-width: 600px)": {
     width: "auto",
-    marginLeft: theme.spacing(1),
+    marginLeft: "8px",
   },
-  ...theme.applyStyles("dark", {
-    backgroundColor: alpha(theme.palette.common.white, 0.06),
-    "&:hover": {
-      backgroundColor: alpha(theme.palette.common.white, 0.1),
-    },
-  }),
-}));
+});
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
+const SearchIconWrapper = styled("div")({
+  padding: "0 16px",
   height: "100%",
   position: "absolute",
   pointerEvents: "none",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-}));
+  color: "#999999",
+});
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
+const StyledInputBase = styled(InputBase)({
+  color: "#222222",
   "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
+    padding: "8px 8px 8px 0",
+    paddingLeft: "calc(1em + 48px)",
+    transition: "width 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
     width: "100%",
-    [theme.breakpoints.up("sm")]: {
+    "@media (min-width: 600px)": {
       width: "12ch",
       "&:focus": {
         width: "20ch",
       },
     },
+    "&::placeholder": {
+      color: "#999999",
+      opacity: 1,
+    },
   },
-}));
+});
 
 export default function CrmSearch() {
   return (
