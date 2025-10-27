@@ -20,7 +20,8 @@ const activities = [
     description: "Proposal follow-up email sent",
     time: "11:30 AM",
     icon: <EmailRoundedIcon fontSize="small" />,
-    color: "primary",
+    bgColor: "#E6F0FF",
+    iconColor: "#0074E9",
   },
   {
     id: 2,
@@ -29,7 +30,8 @@ const activities = [
     description: "Discussed implementation timeline",
     time: "10:15 AM",
     icon: <PhoneRoundedIcon fontSize="small" />,
-    color: "success",
+    bgColor: "#ECFDF5",
+    iconColor: "#059669",
   },
   {
     id: 3,
@@ -38,7 +40,8 @@ const activities = [
     description: "Demo for Global Media next Monday",
     time: "Yesterday",
     icon: <MeetingRoomRoundedIcon fontSize="small" />,
-    color: "warning",
+    bgColor: "#FEF3E2",
+    iconColor: "#D97706",
   },
   {
     id: 4,
@@ -47,7 +50,8 @@ const activities = [
     description: "Added details about RetailGiant requirements",
     time: "Yesterday",
     icon: <EditNoteRoundedIcon fontSize="small" />,
-    color: "info",
+    bgColor: "#E6F0FF",
+    iconColor: "#0074E9",
   },
 ];
 
@@ -59,6 +63,10 @@ export default function CrmActivitiesTimeline() {
         height: "100%",
         display: "flex",
         flexDirection: "column",
+        backgroundColor: "#FFFFFF",
+        borderColor: "#F0F2F5",
+        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
+        border: "none",
       }}
     >
       <CardContent sx={{ p: 0, "&:last-child": { pb: 0 }, flexGrow: 1 }}>
@@ -69,10 +77,20 @@ export default function CrmActivitiesTimeline() {
           spacing={2}
           sx={{ p: 2, pb: 1 }}
         >
-          <Typography variant="h6" component="h3">
+          <Typography variant="h6" component="h3" sx={{ color: "#222222", fontWeight: 600 }}>
             Recent Activities
           </Typography>
-          <Button endIcon={<ArrowForwardRoundedIcon />} size="small">
+          <Button
+            endIcon={<ArrowForwardRoundedIcon />}
+            size="small"
+            sx={{
+              color: "#0074E9",
+              textTransform: "none",
+              "&:hover": {
+                backgroundColor: "rgba(0, 116, 233, 0.08)",
+              },
+            }}
+          >
             View All
           </Button>
         </Stack>
@@ -86,29 +104,37 @@ export default function CrmActivitiesTimeline() {
                 mb: 2,
                 gap: 2,
                 alignItems: "flex-start",
+                paddingBottom: 1.5,
+                borderBottom: "1px solid #F0F2F5",
+                "&:last-child": {
+                  borderBottom: "none",
+                  mb: 0,
+                },
               }}
             >
               <Box
                 sx={{
-                  bgcolor: `${activity.color}.main`,
+                  bgcolor: activity.bgColor,
                   borderRadius: "50%",
                   p: 0.75,
                   display: "flex",
-                  color: "white",
+                  color: activity.iconColor,
+                  minWidth: 32,
+                  justifyContent: "center",
                 }}
               >
                 {activity.icon}
               </Box>
               <Box sx={{ flexGrow: 1 }}>
                 <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                  <Typography variant="subtitle2" component="span">
+                  <Typography variant="subtitle2" component="span" sx={{ color: "#222222", fontWeight: 500 }}>
                     {activity.title}
                   </Typography>
-                  <Typography variant="caption" color="text.secondary">
+                  <Typography variant="caption" sx={{ color: "#999999" }}>
                     {activity.time}
                   </Typography>
                 </Box>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" sx={{ color: "#666666" }}>
                   {activity.description}
                 </Typography>
               </Box>
