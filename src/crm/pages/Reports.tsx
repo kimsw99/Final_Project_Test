@@ -54,74 +54,7 @@ export default function Reports() {
         </Button>
       </Stack>
 
-      <Typography sx={{ color: "#666666", mb: 4 }}>
-        Access comprehensive analytics and insights about your business performance.
-      </Typography>
-
-      <Grid container spacing={2} sx={{ mb: 4 }}>
-        {reportCategories.map((category, index) => (
-          <Grid item xs={12} sm={6} md={6} key={index}>
-            <Card
-              sx={{
-                backgroundColor: "#FFFFFF",
-                borderColor: "#F0F2F5",
-                boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
-                border: "none",
-                cursor: "pointer",
-                transition: "transform 0.2s ease, box-shadow 0.2s ease",
-                "&:hover": {
-                  transform: "translateY(-2px)",
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
-                },
-              }}
-            >
-              <CardContent>
-                <Stack spacing={1.5}>
-                  <Box sx={{ fontSize: "2rem" }}>{category.icon}</Box>
-                  <Typography variant="h6" sx={{ color: "#222222", fontWeight: 600 }}>
-                    {category.title}
-                  </Typography>
-                  <Typography sx={{ color: "#666666" }}>
-                    {category.description}
-                  </Typography>
-                  <Button
-                    variant="text"
-                    size="small"
-                    sx={{
-                      color: "#0074E9",
-                      textTransform: "none",
-                      justifyContent: "flex-start",
-                      "&:hover": {
-                        backgroundColor: "rgba(0, 116, 233, 0.08)",
-                      },
-                    }}
-                  >
-                    View Report →
-                  </Button>
-                </Stack>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-
-      <Card
-        sx={{
-          backgroundColor: "#FFFFFF",
-          borderColor: "#F0F2F5",
-          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
-          border: "none",
-        }}
-      >
-        <CardContent>
-          <Typography variant="h6" sx={{ color: "#222222", fontWeight: 600, mb: 2 }}>
-            Recent Reports
-          </Typography>
-          <Typography sx={{ color: "#666666" }}>
-            No recent reports generated yet. Create your first report using the categories above.
-          </Typography>
-        </CardContent>
-      </Card>
+      <Grid container spacing={2} sx={{ mb: 4 }} />
     </Box>
   );
 }
