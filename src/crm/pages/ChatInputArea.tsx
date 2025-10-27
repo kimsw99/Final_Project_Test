@@ -8,9 +8,9 @@ import SendIcon from "@mui/icons-material/Send";
 import Paper from "@mui/material/Paper";
 
 interface ChatInputAreaProps {
-  onSendMessage: (message: string) => void | Promise<void>;
+  onSendMessage: (message: string) => void;
   suggestedPrompts?: string[];
-  onSuggestedPromptClick?: (prompt: string) => void | Promise<void>;
+  onSuggestedPromptClick?: (prompt: string) => void;
   disabled?: boolean;
 }
 
@@ -106,7 +106,6 @@ export default function ChatInputArea({
               "& .MuiOutlinedInput-root": {
                 borderRadius: 2,
                 bgcolor: "#F9FAFB",
-                color: "#1F2937",
                 "& fieldset": {
                   borderColor: "#E5E7EB",
                 },
@@ -116,13 +115,6 @@ export default function ChatInputArea({
                 "&.Mui-focused fieldset": {
                   borderColor: "#3B82F6",
                 },
-              },
-              "& .MuiOutlinedInput-input": {
-                color: "#1F2937",
-              },
-              "& .MuiInputBase-input::placeholder": {
-                color: "#9CA3AF",
-                opacity: 1,
               },
             }}
           />

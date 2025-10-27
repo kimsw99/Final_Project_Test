@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
+import CircularProgress from "@mui/material/CircularProgress";
 import ChatSidebar from "../components/ChatSidebar";
 import ChatMessageBubble from "../components/ChatMessageBubble";
 import ChatInputArea from "../components/ChatInputArea";
@@ -23,21 +24,9 @@ interface ConversationHistory {
 const initialMessages: Message[] = [
   {
     id: "1",
-    text: "Hi! I'm your AI assistant. How can I help you today?",
+    text: "안녕하세요! AI 어시스턴트입니다. 무엇을 도와드릴까요?",
     sender: "ai",
     timestamp: "12:00 PM",
-  },
-  {
-    id: "2",
-    text: "Can you help me analyze my sales data?",
-    sender: "user",
-    timestamp: "12:01 PM",
-  },
-  {
-    id: "3",
-    text: "Absolutely! I can help you analyze your sales data. What specific insights are you looking for? I can help with:\n\n• Sales trend analysis\n• Customer segmentation\n• Revenue forecasting\n• Performance metrics\n• Competitor analysis",
-    sender: "ai",
-    timestamp: "12:01 PM",
   },
 ];
 
@@ -65,17 +54,21 @@ const conversationHistory: ConversationHistory[] = [
 ];
 
 const suggestedPrompts = [
-  "Analyze this month's sales trends",
-  "Generate a customer report",
-  "What are the top performing products?",
-  "Create a marketing strategy",
+  "안녕하세요!",
+  "오늘 날씨가 어떤가요?",
+  "Python에 대해 설명해주세요",
+  "재미있는 이야기 해주세요",
 ];
+
+// 백엔드 API URL
+const API_BASE_URL = "http://localhost:8000";
 
 export default function Plan() {
   const [messages, setMessages] = React.useState<Message[]>(initialMessages);
   const [activeConversationId, setActiveConversationId] = React.useState(
     "conv-1"
   );
+  const [isLoading, setIsLoading] = React.useState(false);
   const messagesEndRef = React.useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -86,7 +79,8 @@ export default function Plan() {
     scrollToBottom();
   }, [messages]);
 
-  const handleSendMessage = (message: string) => {
+  const handleSendMessage = async (message: string) => {
+    // 사용자 메시지 추가
     const newUserMessage: Message = {
       id: `msg-${Date.now()}`,
       text: message,
@@ -98,19 +92,56 @@ export default function Plan() {
     };
 
     setMessages((prev) => [...prev, newUserMessage]);
+    setIsLoading(true);
 
-    setTimeout(() => {
+    try {
+      // 백엔드 API 호출
+      const response = await fetch(`${API_BASE_URL}/chat`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: message,
+          session_id: activeConversationId,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      // AI 응답 추가
       const aiResponse: Message = {
         id: `msg-${Date.now() + 1}`,
-        text: `Thank you for your question about "${message}". I'm analyzing this for you. Here are some key insights based on your data:\n\n• This is a sample AI response\n• I'm ready to help with your CRM needs\n• You can ask me about sales, customers, and analytics`,
+        text: data.response,
         sender: "ai",
         timestamp: new Date().toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
         }),
       };
+
       setMessages((prev) => [...prev, aiResponse]);
-    }, 800);
+    } catch (error) {
+      console.error("Error calling chatbot API:", error);
+      
+      // 에러 메시지 표시
+      const errorMessage: Message = {
+        id: `msg-${Date.now() + 1}`,
+        text: "죄송합니다. 서버와의 연결에 문제가 발생했습니다. 백엔드 서버가 실행 중인지 확인해주세요.",
+        sender: "ai",
+        timestamp: new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleNewChat = () => {
@@ -196,10 +227,10 @@ export default function Plan() {
                 }}
               >
                 <Typography variant="h5" sx={{ fontWeight: 600, color: "#1F2937" }}>
-                  Start a Conversation
+                  대화를 시작하세요
                 </Typography>
                 <Typography sx={{ color: "#6B7280", fontSize: "0.95rem" }}>
-                  Ask me anything about your sales, customers, or analytics
+                  무엇이든 물어보세요!
                 </Typography>
               </Stack>
             )}
@@ -211,6 +242,21 @@ export default function Plan() {
                 timestamp={msg.timestamp}
               />
             ))}
+            {isLoading && (
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  p: 2,
+                }}
+              >
+                <CircularProgress size={20} />
+                <Typography sx={{ color: "#6B7280", fontSize: "0.9rem" }}>
+                  AI가 답변을 생성하고 있습니다...
+                </Typography>
+              </Box>
+            )}
             <div ref={messagesEndRef} />
           </Stack>
         </Paper>
@@ -219,6 +265,7 @@ export default function Plan() {
           onSendMessage={handleSendMessage}
           suggestedPrompts={suggestedPrompts}
           onSuggestedPromptClick={(prompt) => handleSendMessage(prompt)}
+          disabled={isLoading}
         />
       </Box>
     </Box>
