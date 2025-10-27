@@ -55,16 +55,14 @@ const upcomingTasks = [
 ];
 
 // Function to get priority color
-const getPriorityColor = (
-  priority: string,
-): "error" | "warning" | "default" => {
+const getPriorityColor = (priority: string): { bg: string; color: string } => {
   switch (priority) {
     case "high":
-      return "error";
+      return { bg: "#FEE2E2", color: "#DC2626" };
     case "medium":
-      return "warning";
+      return { bg: "#FEF3E2", color: "#D97706" };
     default:
-      return "default";
+      return { bg: "#F3F4F6", color: "#6B7280" };
   }
 };
 
@@ -86,6 +84,10 @@ export default function CrmUpcomingTasks() {
         height: "100%",
         display: "flex",
         flexDirection: "column",
+        backgroundColor: "#FFFFFF",
+        borderColor: "#F0F2F5",
+        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
+        border: "none",
       }}
     >
       <CardContent sx={{ p: 0, "&:last-child": { pb: 0 }, flexGrow: 1 }}>
@@ -96,32 +98,49 @@ export default function CrmUpcomingTasks() {
           spacing={2}
           sx={{ p: 2, pb: 1 }}
         >
-          <Typography variant="h6" component="h3">
+          <Typography variant="h6" component="h3" sx={{ color: "#222222", fontWeight: 600 }}>
             Upcoming Tasks
           </Typography>
-          <Button endIcon={<ArrowForwardRoundedIcon />} size="small">
+          <Button
+            endIcon={<ArrowForwardRoundedIcon />}
+            size="small"
+            sx={{
+              color: "#0074E9",
+              textTransform: "none",
+              "&:hover": {
+                backgroundColor: "rgba(0, 116, 233, 0.08)",
+              },
+            }}
+          >
             View All
           </Button>
         </Stack>
 
-        <List sx={{ width: "100%", bgcolor: "background.paper" }}>
+        <List sx={{ width: "100%", bgcolor: "#FFFFFF" }}>
           {tasks.map((task) => {
             const labelId = `checkbox-list-label-${task.id}`;
+            const priorityColor = getPriorityColor(task.priority);
 
             return (
               <ListItem
                 key={task.id}
                 secondaryAction={
-                  <IconButton edge="end" aria-label="more details">
+                  <IconButton edge="end" aria-label="more details" sx={{ color: "#999999" }}>
                     <ArrowForwardRoundedIcon />
                   </IconButton>
                 }
                 disablePadding
+                sx={{ borderBottom: "1px solid #F0F2F5" }}
               >
                 <ListItemButton
                   role={undefined}
                   onClick={handleToggle(task.id)}
                   dense
+                  sx={{
+                    "&:hover": {
+                      backgroundColor: "#F9FAFB",
+                    },
+                  }}
                 >
                   <ListItemIcon>
                     <Checkbox
@@ -130,6 +149,12 @@ export default function CrmUpcomingTasks() {
                       tabIndex={-1}
                       disableRipple
                       inputProps={{ "aria-labelledby": labelId }}
+                      sx={{
+                        color: "#CDE3FA",
+                        "&.Mui-checked": {
+                          color: "#0074E9",
+                        },
+                      }}
                     />
                   </ListItemIcon>
                   <ListItemText
@@ -141,8 +166,9 @@ export default function CrmUpcomingTasks() {
                             ? "line-through"
                             : "none",
                           color: task.completed
-                            ? "text.secondary"
-                            : "text.primary",
+                            ? "#999999"
+                            : "#222222",
+                          fontWeight: task.completed ? 400 : 500,
                         }}
                       >
                         {task.task}
@@ -160,14 +186,16 @@ export default function CrmUpcomingTasks() {
                         <Chip
                           label={task.priority}
                           size="small"
-                          color={getPriorityColor(task.priority)}
-                          variant="outlined"
                           sx={{
                             height: 20,
+                            backgroundColor: priorityColor.bg,
+                            color: priorityColor.color,
+                            border: "none",
+                            fontWeight: 500,
                             "& .MuiChip-label": { px: 1, py: 0 },
                           }}
                         />
-                        <Typography variant="caption" color="text.secondary">
+                        <Typography variant="caption" sx={{ color: "#999999" }}>
                           {task.dueDate}
                         </Typography>
                       </Box>
