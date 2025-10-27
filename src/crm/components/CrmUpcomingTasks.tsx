@@ -159,21 +159,7 @@ export default function CrmUpcomingTasks() {
                   </ListItemIcon>
                   <ListItemText
                     id={labelId}
-                    primary={
-                      <Typography
-                        sx={{
-                          textDecoration: task.completed
-                            ? "line-through"
-                            : "none",
-                          color: task.completed
-                            ? "#999999"
-                            : "#222222",
-                          fontWeight: task.completed ? 400 : 500,
-                        }}
-                      >
-                        {task.task}
-                      </Typography>
-                    }
+                    primary={task.task}
                     secondary={
                       <Box
                         sx={{
@@ -200,6 +186,20 @@ export default function CrmUpcomingTasks() {
                         </Typography>
                       </Box>
                     }
+                    primaryTypographyProps={{
+                      sx: {
+                        textDecoration: task.completed
+                          ? "line-through"
+                          : "none",
+                        color: task.completed
+                          ? "#999999"
+                          : "#222222",
+                        fontWeight: task.completed ? 400 : 500,
+                      },
+                    }}
+                    secondaryTypographyProps={{
+                      component: "div",
+                    }}
                   />
                 </ListItemButton>
               </ListItem>
