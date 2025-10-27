@@ -9,23 +9,17 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
-import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
-import PeopleRoundedIcon from "@mui/icons-material/PeopleRounded";
-import BusinessCenterRoundedIcon from "@mui/icons-material/BusinessCenterRounded";
-import ContactsRoundedIcon from "@mui/icons-material/ContactsRounded";
-import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import AssessmentRoundedIcon from "@mui/icons-material/AssessmentRounded";
+import SmartToyRoundedIcon from "@mui/icons-material/SmartToyRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
 import { CrmLogo } from "./CrmAppNavbar";
 
 const mainListItems = [
-  { text: "Dashboard", icon: <DashboardRoundedIcon />, path: "/" },
-  { text: "Customers", icon: <PeopleRoundedIcon />, path: "/customers" },
-  { text: "Deals", icon: <BusinessCenterRoundedIcon />, path: "/deals" },
-  { text: "Contacts", icon: <ContactsRoundedIcon />, path: "/contacts" },
-  { text: "Tasks", icon: <AssignmentRoundedIcon />, path: "/tasks" },
+  { text: "Home", icon: <HomeRoundedIcon />, path: "/" },
   { text: "Reports", icon: <AssessmentRoundedIcon />, path: "/reports" },
+  { text: "Plan", icon: <SmartToyRoundedIcon />, path: "/plan" },
 ];
 
 const secondaryListItems = [
@@ -63,6 +57,8 @@ export default function CrmSideMenuMobile({
         "& .MuiDrawer-paper": {
           width: "280px",
           boxSizing: "border-box",
+          backgroundColor: "#FFFFFF",
+          borderRight: "1px solid #F0F2F5",
         },
       }}
     >
@@ -84,17 +80,29 @@ export default function CrmSideMenuMobile({
           }}
         >
           <CrmLogo />
-          <Typography variant="h6" component="div">
+          <Typography variant="h6" component="div" sx={{ color: "#222222", fontWeight: 600 }}>
             Acme CRM
           </Typography>
         </Box>
 
         <List dense>
           {mainListItems.map((item, index) => (
-            <ListItem key={index} disablePadding>
+            <ListItem key={index} disablePadding sx={{ mb: 0.5 }}>
               <ListItemButton
                 selected={location.pathname === item.path}
                 onClick={() => handleNavigation(item.path)}
+                sx={{
+                  borderRadius: 1,
+                  backgroundColor: location.pathname === item.path ? "#E6F0FF" : "transparent",
+                  color: location.pathname === item.path ? "#0074E9" : "#222222",
+                  "&:hover": {
+                    backgroundColor: "#F5F7FA",
+                  },
+                  "& .MuiListItemIcon-root": {
+                    color: "inherit",
+                    minWidth: 40,
+                  },
+                }}
               >
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.text} />
@@ -103,14 +111,26 @@ export default function CrmSideMenuMobile({
           ))}
         </List>
 
-        <Divider sx={{ my: 1 }} />
+        <Divider sx={{ my: 1, borderColor: "#F0F2F5" }} />
 
         <List dense>
           {secondaryListItems.map((item, index) => (
-            <ListItem key={index} disablePadding>
+            <ListItem key={index} disablePadding sx={{ mb: 0.5 }}>
               <ListItemButton
                 selected={location.pathname === item.path}
                 onClick={() => handleNavigation(item.path)}
+                sx={{
+                  borderRadius: 1,
+                  backgroundColor: location.pathname === item.path ? "#E6F0FF" : "transparent",
+                  color: location.pathname === item.path ? "#0074E9" : "#222222",
+                  "&:hover": {
+                    backgroundColor: "#F5F7FA",
+                  },
+                  "& .MuiListItemIcon-root": {
+                    color: "inherit",
+                    minWidth: 40,
+                  },
+                }}
               >
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.text} />
