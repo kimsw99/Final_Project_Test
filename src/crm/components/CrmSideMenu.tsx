@@ -45,7 +45,7 @@ export default function CrmSideMenu() {
       >
         <CrmSelectCompany />
       </Box>
-      <Divider />
+      <Divider sx={{ borderColor: "#F0F2F5" }} />
       <Box
         sx={{
           overflow: "auto",
