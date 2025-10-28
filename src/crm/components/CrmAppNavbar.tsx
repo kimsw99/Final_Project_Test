@@ -40,7 +40,7 @@ export default function CrmAppNavbar() {
       position="fixed"
       sx={{
         display: { xs: "auto", md: "none" },
-        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
+        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.06)",
         bgcolor: "#FFFFFF",
         backgroundImage: "none",
         borderBottom: "1px solid #F0F2F5",
