@@ -110,7 +110,7 @@ export default function ChatSidebar({
             width: "100%",
             py: 1.2,
             px: 2,
-            borderRadius: 1.5,
+            borderRadius: 2,
             backgroundColor: "#0074E9",
             color: "#FFFFFF",
             fontWeight: 500,
@@ -120,9 +120,11 @@ export default function ChatSidebar({
             justifyContent: "center",
             gap: 1,
             cursor: "pointer",
-            transition: "background-color 0.2s ease",
+            transition: "all 0.2s ease",
+            boxShadow: "0 2px 8px rgba(0, 116, 233, 0.15)",
             "&:hover": {
-              backgroundColor: "#0062C3",
+              backgroundColor: "#3399FF",
+              boxShadow: "0 4px 12px rgba(0, 116, 233, 0.25)",
             },
           }}
         >
