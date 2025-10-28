@@ -17,8 +17,8 @@ import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
 
 const mainListItems = [
   { text: "Home", icon: <HomeRoundedIcon />, path: "/" },
-  { text: "Reports", icon: <AssessmentRoundedIcon />, path: "/reports" },
   { text: "Plan", icon: <SmartToyRoundedIcon />, path: "/plan" },
+  { text: "Reports", icon: <AssessmentRoundedIcon />, path: "/reports" },
 ];
 
 const secondaryListItems = [
