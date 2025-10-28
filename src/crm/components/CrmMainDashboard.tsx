@@ -71,7 +71,7 @@ export default function CrmMainDashboard() {
         sx={{ mb: 3, display: { xs: "none", sm: "flex" } }}
       >
         <Typography variant="h5" component="h2" sx={{ color: "#222222", fontWeight: 600 }}>
-          Dashboard Overview
+          Overview
         </Typography>
         <Box>
           <Button
