@@ -71,64 +71,47 @@ export default function CrmSideMenu() {
           }}
         >
           <Box
+            component="button"
+            onClick={toggleSidebar}
+            type="button"
             sx={{
-              flex: 1,
               display: "flex",
-              flexDirection: "row",
+              alignItems: "center",
+              appearance: "none",
+              backgroundColor: "rgba(255, 255, 255, 1)",
+              borderColor: "rgb(51, 60, 77)",
+              borderRadius: "8px",
+              borderStyle: "solid",
+              borderWidth: "1px",
+              color: "rgb(0, 116, 233)",
+              fontSize: "18px",
+              fontWeight: "500",
+              height: "36px",
+              justifyContent: "center",
+              letterSpacing: "normal",
+              lineHeight: "27px",
+              position: "relative",
+              transitionDuration: "0.2s",
+              userSelect: "none",
+              verticalAlign: "middle",
+              width: "36px",
+              padding: "4px",
+              cursor: "pointer",
             }}
           >
-            <Box
-              component="button"
-              onClick={toggleSidebar}
-              type="button"
+            <ChevronLeftRoundedIcon
               sx={{
-                display: "flex",
-                alignItems: "center",
-                appearance: "none",
-                backgroundColor: "rgba(255, 255, 255, 1)",
-                borderColor: "rgb(51, 60, 77)",
-                borderRadius: "8px",
-                borderStyle: "solid",
-                borderWidth: "1px",
-                color: "rgb(0, 116, 233)",
-                fontSize: "18px",
+                fontSize: "16px",
                 fontWeight: "500",
-                height: "36px",
-                justifyContent: "center",
-                letterSpacing: "normal",
-                lineHeight: "27px",
-                position: "relative",
-                transitionDuration: "0.2s",
-                userSelect: "none",
-                verticalAlign: "middle",
-                width: "36px",
-                padding: "4px",
-                cursor: "pointer",
-                flexShrink: 0,
+                height: "16px",
+                width: "16px",
+                lineHeight: "24px",
+                fill: "rgb(0, 116, 233)",
+                transitionDuration: "0.3s",
+                transitionProperty: "transform",
+                transform: isCollapsed ? "rotate(180deg)" : "rotate(0deg)",
               }}
-            >
-              <ChevronLeftRoundedIcon
-                sx={{
-                  fontSize: "16px",
-                  fontWeight: "500",
-                  height: "16px",
-                  width: "16px",
-                  lineHeight: "24px",
-                  fill: "rgb(0, 116, 233)",
-                  transitionDuration: "0.3s",
-                  transitionProperty: "transform",
-                  transform: isCollapsed ? "rotate(180deg)" : "rotate(0deg)",
-                }}
-              />
-            </Box>
-            <Box
-              sx={{
-                fontWeight: "400",
-                width: "100%",
-              }}
-            >
-              {!isCollapsed && <CrmSelectCompany />}
-            </Box>
+            />
           </Box>
         </Box>
 
