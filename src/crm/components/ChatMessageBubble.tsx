@@ -46,14 +46,16 @@ export default function ChatMessageBubble({
       <Paper
         sx={{
           maxWidth: "70%",
-          px: 2,
-          py: 1.5,
+          px: 2.5,
+          py: 1.75,
           bgcolor: isUser ? "#0074E9" : "#F5F7FA",
           color: isUser ? "#FFFFFF" : "#1F2937",
-          borderRadius: 2,
+          borderRadius: 2.5,
           boxShadow: isUser
             ? "0 2px 8px rgba(0, 116, 233, 0.15)"
             : "0 1px 3px rgba(0, 0, 0, 0.05)",
+          border: isUser ? "none" : "1px solid #E5E7EB",
+          transition: "all 0.2s ease",
         }}
         elevation={0}
       >
