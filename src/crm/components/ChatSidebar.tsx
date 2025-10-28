@@ -172,11 +172,13 @@ export default function ChatSidebar({
                     selected={activeConversationId === conversation.id}
                     onClick={() => onSelectConversation?.(conversation.id)}
                     sx={{
-                      borderRadius: 1.5,
-                      py: 1,
-                      bgcolor: activeConversationId === conversation.id ? "#CDE3FA" : "transparent",
+                      borderRadius: 2,
+                      py: 1.2,
+                      bgcolor: activeConversationId === conversation.id ? "#E6F0FF" : "transparent",
+                      color: activeConversationId === conversation.id ? "#0074E9" : "#222222",
+                      transition: "all 0.2s ease",
                       "&:hover": {
-                        bgcolor: "#F0F6FF",
+                        bgcolor: "#F5F7FA",
                       },
                     }}
                   >
