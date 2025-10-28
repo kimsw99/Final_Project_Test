@@ -21,10 +21,11 @@ export default function CrmSelectCompany() {
           value={company}
           onChange={handleChange}
           sx={{
-            borderRadius: 1,
+            borderRadius: 2,
             backgroundColor: "#FFFFFF",
-            border: "2px solid rgba(0, 0, 0, 1)",
+            border: "1px solid #E5E7EB",
             overflow: "hidden",
+            transition: "all 0.2s ease",
             "& .MuiOutlinedInput-notchedOutline": {
               borderColor: "transparent",
             },
@@ -34,12 +35,17 @@ export default function CrmSelectCompany() {
             "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
               borderColor: "transparent",
             },
+            "&.Mui-focused": {
+              boxShadow: "0 2px 8px rgba(0, 116, 233, 0.1)",
+              borderColor: "#0074E9",
+            },
             "& .MuiSelect-select": {
               display: "flex",
               alignItems: "center",
               gap: 1,
               color: "#222222",
               fontWeight: 500,
+              py: 1.2,
             },
           }}
         >
