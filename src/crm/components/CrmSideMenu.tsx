@@ -12,7 +12,6 @@ import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import CrmSelectCompany from "./CrmSelectCompany";
 import CrmMenuContent from "./CrmMenuContent";
 import CrmOptionsMenu from "./CrmOptionsMenu";
-import SvgIcon from "@mui/material/SvgIcon";
 
 const drawerWidthExpanded = 240;
 const drawerWidthCollapsed = 80;
