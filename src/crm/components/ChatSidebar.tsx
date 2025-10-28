@@ -53,10 +53,11 @@ export default function ChatSidebar({
         flexDirection: "column",
         bgcolor: "#FFFFFF",
         borderRadius: 2,
-        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.06)",
-        pt: 2,
+        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.05)",
+        pt: 2.5,
         px: 2,
         overflow: "auto",
+        border: "1px solid #F0F2F5",
       }}
       elevation={0}
     >
