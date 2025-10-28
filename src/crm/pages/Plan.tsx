@@ -164,7 +164,7 @@ export default function Plan() {
         display: "flex",
         width: "100%",
         height: "100%",
-        bgcolor: "#E6F0FF",
+        bgcolor: "#F8F9FB",
         mt: { xs: 8, md: 0 },
       }}
     >
@@ -196,7 +196,7 @@ export default function Plan() {
           display: "flex",
           flexDirection: "column",
           position: "relative",
-          bgcolor: "#E6F0FF",
+          bgcolor: "#F8F9FB",
           p: 2,
         }}
       >
