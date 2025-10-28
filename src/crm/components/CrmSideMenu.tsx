@@ -9,7 +9,6 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
-import CrmSelectCompany from "./CrmSelectCompany";
 import CrmMenuContent from "./CrmMenuContent";
 import CrmOptionsMenu from "./CrmOptionsMenu";
 
