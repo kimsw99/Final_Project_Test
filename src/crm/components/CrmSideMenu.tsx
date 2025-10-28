@@ -65,36 +65,70 @@ export default function CrmSideMenu() {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "space-between",
             alignItems: "center",
+            justifyContent: "space-between",
             mt: "calc(var(--template-frame-height, 0px) + 4px)",
             p: 1.5,
             minHeight: 72,
           }}
         >
-          {!isCollapsed && (
-            <Box sx={{ flex: 1 }}>
-              <CrmSelectCompany />
-            </Box>
-          )}
-          <IconButton
-            onClick={toggleSidebar}
-            size="small"
+          <Box
             sx={{
-              color: "#0074E9",
-              "&:hover": {
-                backgroundColor: "#E6F0FF",
-              },
-              transition: "all 0.2s ease",
+              flex: 1,
+              display: "flex",
+              flexDirection: "row",
             }}
           >
-            <ChevronLeftRoundedIcon
+            <button
+              onClick={toggleSidebar}
+              type="button"
               sx={{
-                transform: isCollapsed ? "rotate(180deg)" : "rotate(0deg)",
-                transition: "transform 0.3s ease",
+                display: "flex",
+                alignItems: "center",
+                appearance: "none",
+                backgroundColor: "rgba(255, 255, 255, 1)",
+                borderColor: "rgb(51, 60, 77)",
+                borderRadius: "8px",
+                borderWidth: "1px",
+                color: "rgb(0, 116, 233)",
+                fontSize: "18px",
+                fontWeight: "500",
+                height: "36px",
+                justifyContent: "center",
+                letterSpacing: "normal",
+                lineHeight: "27px",
+                position: "relative",
+                transitionDuration: "0.2s",
+                userSelect: "none",
+                verticalAlign: "middle",
+                width: "36px",
+                padding: "4px",
+                cursor: "pointer",
               }}
-            />
-          </IconButton>
+            >
+              <ChevronLeftRoundedIcon
+                sx={{
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  height: "16px",
+                  width: "16px",
+                  lineHeight: "24px",
+                  fill: "rgb(0, 116, 233)",
+                  transitionDuration: "0.3s",
+                  transitionProperty: "transform",
+                  transform: isCollapsed ? "rotate(180deg)" : "rotate(0deg)",
+                }}
+              />
+            </button>
+            <Box
+              sx={{
+                fontWeight: "400",
+                width: "100%",
+              }}
+            >
+              {!isCollapsed && <CrmSelectCompany />}
+            </Box>
+          </Box>
         </Box>
 
         {!isCollapsed && <Divider sx={{ borderColor: "#F0F2F5" }} />}
