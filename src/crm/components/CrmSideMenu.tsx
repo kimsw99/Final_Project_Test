@@ -79,7 +79,8 @@ export default function CrmSideMenu() {
               flexDirection: "row",
             }}
           >
-            <button
+            <Box
+              component="button"
               onClick={toggleSidebar}
               type="button"
               sx={{
@@ -89,6 +90,7 @@ export default function CrmSideMenu() {
                 backgroundColor: "rgba(255, 255, 255, 1)",
                 borderColor: "rgb(51, 60, 77)",
                 borderRadius: "8px",
+                borderStyle: "solid",
                 borderWidth: "1px",
                 color: "rgb(0, 116, 233)",
                 fontSize: "18px",
@@ -104,6 +106,7 @@ export default function CrmSideMenu() {
                 width: "36px",
                 padding: "4px",
                 cursor: "pointer",
+                flexShrink: 0,
               }}
             >
               <ChevronLeftRoundedIcon
@@ -119,7 +122,7 @@ export default function CrmSideMenu() {
                   transform: isCollapsed ? "rotate(180deg)" : "rotate(0deg)",
                 }}
               />
-            </button>
+            </Box>
             <Box
               sx={{
                 fontWeight: "400",
