@@ -154,19 +154,6 @@ export default function ChatSidebar({
                   sx={{
                     mb: 0.5,
                   }}
-                  secondaryAction={
-                    <IconButton
-                      edge="end"
-                      size="small"
-                      onClick={() => onDeleteConversation?.(conversation.id)}
-                      sx={{
-                        opacity: 0.6,
-                        "&:hover": { opacity: 1 },
-                      }}
-                    >
-                      <DeleteRoundedIcon fontSize="small" />
-                    </IconButton>
-                  }
                 >
                   <ListItemButton
                     selected={activeConversationId === conversation.id}
