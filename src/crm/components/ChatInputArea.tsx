@@ -55,10 +55,11 @@ export default function ChatInputArea({
     >
       <Paper
         sx={{
-          p: 2,
+          p: 2.5,
           borderRadius: 2,
           bgcolor: "#FFFFFF",
-          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.06)",
+          border: "1px solid #F0F2F5",
         }}
         elevation={0}
       >
@@ -67,7 +68,7 @@ export default function ChatInputArea({
             direction="row"
             spacing={1}
             sx={{
-              mb: 2,
+              mb: 2.5,
               flexWrap: "wrap",
               gap: 1,
             }}
@@ -79,19 +80,26 @@ export default function ChatInputArea({
                 onClick={() => handlePromptClick(prompt)}
                 disabled={disabled}
                 sx={{
-                  bgcolor: "#F3F4F6",
+                  bgcolor: "#F5F7FA",
+                  color: "#222222",
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  borderRadius: 2,
+                  border: "1px solid #E5E7EB",
+                  transition: "all 0.2s ease",
                   "&:hover": {
-                    bgcolor: disabled ? "#F3F4F6" : "#E5E7EB",
+                    bgcolor: disabled ? "#F5F7FA" : "#E6F0FF",
+                    borderColor: disabled ? "#E5E7EB" : "#0074E9",
+                    color: disabled ? "#222222" : "#0074E9",
                   },
                   cursor: disabled ? "not-allowed" : "pointer",
-                  fontSize: "0.875rem",
                 }}
               />
             ))}
           </Stack>
         )}
 
-        <Box sx={{ display: "flex", gap: 1, alignItems: "flex-end" }}>
+        <Box sx={{ display: "flex", gap: 1.5, alignItems: "flex-end" }}>
           <TextField
             fullWidth
             multiline
@@ -107,6 +115,7 @@ export default function ChatInputArea({
                 borderRadius: 2,
                 bgcolor: "#F9FAFB",
                 color: "#1F2937",
+                transition: "all 0.2s ease",
                 "& fieldset": {
                   borderColor: "#E5E7EB",
                 },
@@ -114,7 +123,8 @@ export default function ChatInputArea({
                   borderColor: "#D1D5DB",
                 },
                 "&.Mui-focused fieldset": {
-                  borderColor: "#3B82F6",
+                  borderColor: "#0074E9",
+                  borderWidth: 2,
                 },
               },
               "& .MuiOutlinedInput-input": {
@@ -130,17 +140,22 @@ export default function ChatInputArea({
             onClick={handleSend}
             disabled={!inputValue.trim() || disabled}
             sx={{
-              bgcolor: "#3B82F6",
+              bgcolor: "#0074E9",
               color: "#FFFFFF",
+              transition: "all 0.2s ease",
+              boxShadow: "0 2px 8px rgba(0, 116, 233, 0.15)",
               "&:hover": {
-                bgcolor: "#2563EB",
+                bgcolor: "#3399FF",
+                boxShadow: "0 4px 12px rgba(0, 116, 233, 0.25)",
               },
               "&:disabled": {
                 bgcolor: "#E5E7EB",
                 color: "#9CA3AF",
+                boxShadow: "none",
               },
               width: 48,
               height: 48,
+              minWidth: 48,
             }}
           >
             <SendIcon />
