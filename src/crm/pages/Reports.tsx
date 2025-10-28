@@ -21,8 +21,14 @@ export default function Reports() {
             backgroundColor: "#0074E9",
             textTransform: "none",
             fontWeight: 500,
+            borderRadius: 2,
+            px: 2.5,
+            py: 1,
+            boxShadow: "0 2px 8px rgba(0, 116, 233, 0.15)",
+            transition: "all 0.2s ease",
             "&:hover": {
-              backgroundColor: "#0062C3",
+              backgroundColor: "#3399FF",
+              boxShadow: "0 4px 12px rgba(0, 116, 233, 0.25)",
             },
           }}
         >
